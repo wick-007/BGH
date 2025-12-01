@@ -1,8 +1,8 @@
 
 
 <?php
-$dsn = "pgsql:host=localhost;port=5432;dbname=BGH";
-$dbusername ='postgres';
+$dsn = "pgsql:host=127.0.0.1; port=5432; dbname=bgh";
+$dbusername ='bgh_super';
 $dbpassword ='8956';
 
 //using modern php data object connection for database because it is more secure and flexible

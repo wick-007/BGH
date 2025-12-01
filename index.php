@@ -19,6 +19,10 @@
             <button>signup</button><br>
         </form>
     </div><br>
+     <form action="./includes/search.php" method="POST" class="new">
+            <input type="text" name="searchuser" id="searchuser" placeholder="search..." class="search"><br><br>
+            <button>search</button><br>
+        </form>
 </body>
 
 </html>
