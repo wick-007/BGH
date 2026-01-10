@@ -1,9 +1,14 @@
 <?php
 
+session_start();
+
+
 if ($_SERVER['REQUEST_METHOD']=="POST"){
     $searchuser = filter_input(INPUT_POST, "searchuser", FILTER_SANITIZE_SPECIAL_CHARS);
 
 try{
+    
+    /** @var PDO $pdo */
     require_once 'dbh.inc.php';
 
     $query = "SELECT * FROM users WHERE username LIKE :searchuser ;";
@@ -12,7 +17,7 @@ try{
     $stmt-> bindparam(':searchuser',$searchuser);
     $stmt->execute();
 
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC); // using fetch all means fetching more than one data, you can simpy use ->fetch(PDO::Fetch_ASSOC) and fetch the data in associative array.
 
 }catch (PDOException $e) {
     echo 'Query failed'. $e->getMessage();

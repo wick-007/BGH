@@ -1,3 +1,9 @@
+
+<?php 
+require_once 'includes/config_session.php';
+require_once 'includes/signup_view.php';
+require_once 'includes/login_view.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,19 +16,32 @@
 
 <body>
     <h1>Welcome to Bee's Glam Hub</h1>
-    <p>Kindly signup here</p>
+    <h3>SIGNUP HERE</h3>
     <div>
-        <form action="./includes/formhandler.inc.php" method="POST">
+        <form action="./includes/signup.inc.php" method="POST">
+              <?php 
+                Signup();
+              ?>
+            <button>signup</button><br>
+        </form>
+    </div><br>
+    <h3>LOGIN HERE</h3>
+     <div>
+        <form action="./includes/loginhandler.php" method="POST">
             <input type="text" name="username" id="username" placeholder="Username"><br><br>
             <input type="password" name="password" id="password" placeholder="Password"><br><br>
-            <input type="email" name="email" id="email" placeholder="Email"><br><br>
-            <button>signup</button><br>
+            <button>LOGIN</button><br>
         </form>
     </div><br>
      <form action="./includes/search.php" method="POST" class="new">
             <input type="text" name="searchuser" id="searchuser" placeholder="search..." class="search"><br><br>
             <button>search</button><br>
         </form>
+
+        <?php 
+         check_signup_errors();
+         check_login_errors();
+        ?>
 </body>
 
 </html>
